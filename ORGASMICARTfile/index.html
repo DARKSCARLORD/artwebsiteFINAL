@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover and purchase unique artwork from local artists. Support your community and explore diverse art styles.">
+    <meta name="keywords" content="local art, buy art, art gallery, community artists, paintings, sculptures">
+    <meta name="author" content="Chandler, Elizabeth">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7EHH1W40S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-W7EHH1W40S');
+    </script>
+    
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        /* Navigation Style */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Navigation Buttons Styles */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-buttons a {
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .nav-buttons a:hover {
+            background-color: #333;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            min-height: 60vh;
+            padding: 20px 50px;
+            
+        }
+
+
+
+        /* Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .slideshow ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .slideshow ul li {
+            display: none;
+        }
+
+        .slideshow ul li img {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            object-fit: cover;
+        }
+
+        .slideshow .prev, .slideshow .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .slideshow .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .slideshow .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .slideshow .prev:hover, .slideshow .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Centered Text */
+        .text-center {
+            text-align: center;
+        }
+        
+        .alignfull {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .alignwide {
+            margin: 0 auto;
+            width: fit-content;
+        }
+        
+        .button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .button.full-width {
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .button:hover {
+            background-color: #333;
+        }
+        
+        /* Artist Profiles */
+        .artist-profiles {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .artist {
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+        }
+
+        .artist img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Subscriptions */
+        .subscriptions form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .subscriptions input[type="email"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .subscriptions button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .subscriptions button:hover {
+            background-color: #333;
+        }
+        
+        /* Footer Styles */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+        }
+    
+        
+        .footer-section {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .footer-actions {
+            margin-top: 20px;
+        }
+        
+        .footer-actions form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-actions input {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+        
+        .footer-actions button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .footer-actions button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">| ORGASMIC ART |<br>For the People, By the People</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#meet-the-artist">Meet the Artist</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#join-our-team">Join our Team</a></li>
+            </ul>
+        </nav>
+        <div class="nav-buttons">
+            <a href="#login">LOGIN</a>
+            <a href="#signup">SIGN UP</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <ul>
+                    <li><img src="img-1.jpeg" alt="Artwork 1"></li>
+                    <li><img src="img-2.jpeg" alt="Artwork 2"></li>
+                    <li><img src="img-3.jpeg" alt="Artwork 3"></li>
+                    <li><img src="img-4.jpeg" alt="Artwork 4"></li>
+                    <li><img src="img-5.jpeg" alt="Artwork 5"></li>
+                    <li><img src="img-6.jpeg" alt="Artwork 6"></li>
+                    <li><img src="img-7.jpeg" alt="Artwork 7"></li>
+                    <li><img src="img-8.jpeg" alt="Artwork 8"></li>
+                    <li><img src="img-9.jpeg" alt="Artwork 9"></li>
+                </ul>
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <h1>Orgasmic Art for the People by the People</h1>
+            <p>Welcome to Orgasmic Art, where we showcase the finest local talent in the art community. Browse our gallery and find the perfect piece that speaks to you.</p>
+        </div>
+        
+        <div class="alignfull">
+            <h2>Meet the Artists</h2>
+            <div class="artist-profiles">
+                <div class="artist">
+                    <img src="artist-1.jpg" alt="Artist 1">
+                    <p><a href="https://www.saatchiart.com/account/artworks/688128">Betty Ram</a><p>
+                </div>
+                <div class="artist">
+                    <img src="artist-2.jpg" alt="Artist 2">
+                    <p><a href="https://www.saatchiart.com/account/artworks/688128">Mohammed Abualia</a><p>
+                </div>
+                <div class="artist">
+                    <img src="artist-3.jpg" alt="Artist 3">
+                    <p><a href="https://www.saatchiart.com/account/artworks/688128">Ron Williams</a><p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alignfull subscriptions">
+            <h2>Subscribe to Our Newsletter!</h2>
+            <form>
+                <input type="email" name="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Orgasmic Art</h4>
+            <p>For the People, By the People</p>
+        </div>
+        <div class="footer-section">
+            <h4>Questions?</h4>
+            <p><b>Cell:</b> 864-847-9487</p>
+            <p><b>Email:</b><a href="mailto:orgasmicart4you@gmail.com"> orgasmicart4you@gmail.com</a></p>
+            <p><b>Main Office:</b> 400 East Randolph Street Chicago IL, 60601</p>
+        </div>
+        <div class="footer-section">
+            <h4>Hours of Operation:</h4>
+            <p>Weekdays: 8:00AM - 5:00PM</p>
+            <p>Weekends: 7:00AM - 6:00PM</p>
+            <div class="footer-actions">
+                <form>
+                    <input type="email" name="email" placeholder="Enter your email address">
+                    <button type="submit">Subscribe!</button>
+                </form>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.querySelectorAll(".slideshow ul li");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex-1].style.display = "block";  
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    </script>
+</body>
+</html>
